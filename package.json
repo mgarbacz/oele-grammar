@@ -1,0 +1,12 @@
+{
+  "name": "oele-grammar",
+  "description": "Nearley Grammar for OELE",
+  "version": "0.0.1",
+  "scripts": {
+    "compile": "nearleyc src/grammar.ne -o dist/grammar.js",
+    "test": "nearley-test dist/grammar.js"
+  },
+  "dependencies": {
+    "nearley": "^2.20.1"
+  }
+}

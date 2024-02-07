@@ -4,7 +4,7 @@
 		ws: /[ \t]+/,
 		comparison: /!=|==|>|<|>=|<=/,
 		expression: /AND|OR/,
-		value: /'[^']*'|\d+/,
+		value: /'[^']*'|"[^"]*"|\d+/,
 		variable: /[\w(?:\.\w)*]+/
 	});
 %}

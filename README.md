@@ -6,7 +6,36 @@ This is the grammar for [oele](https://github.com/mgarbacz/oele).
 
 The goal of this project is to parse statements written in the Okta Expression Language for correctness. Since this is a WIP, it will just be an Okay expression language evaluator for now.
 
-Defined in this source code is a [Moo](https://github.com/no-context/moo) tokenizer/lexer and a grammar using [Nearley](https://nearley.js.org/) syntax. Nearley is then used to parse the expression language.
+Defined in this source code is a [Moo](https://github.com/no-context/moo) tokenizer/lexer and a grammar using [Nearley](https://nearley.js.org/) syntax. Nearley is then used to parse the expression.
+
+## Supported Expressions
+
+- AND, OR
+- !=, ==, >, <, >=, <=
+
+with more on the way!
+
+## How to use
+
+The code below follows the [Nearly docs on how to use a parser](https://nearley.js.org/docs/parser)
+
+```js
+import nearley from 'nearley';
+import grammar from './dist/grammar.cjs';
+
+const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+
+// Streaming parser, can feed multiple lines
+parser.feed('user.name == "John" AND user.age > 18');
+
+// To query the results of the parser and print out the whole structure
+console.dir(parser.results, { depth: null });
+```
+
+_Note: `parser.results` is an array, but it will always be length 1 if this grammar is correctly unambigious_
+
+The structure of the output is still in flux as the grammar develops. I'd like to produce an abstract syntax tree and maybe have an interface that does not require interacting directly with Nearly - just one import, send in expression, get AST back.
+
 
 ## Developing
 

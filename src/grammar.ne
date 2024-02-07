@@ -1,12 +1,12 @@
 @{%
-	const moo = require("moo");
-	const lexer = moo.compile({
-		ws: /[ \t]+/,
-		comparison: /!=|==|>|<|>=|<=/,
-		expression: /AND|OR/,
-		value: /'[^']*'|"[^"]*"|\d+/,
-		variable: /[\w(?:\.\w)*]+/
-	});
+  const moo = require("moo");
+  const lexer = moo.compile({
+    ws: /[ \t]+/,
+    comparison: /!=|==|>|<|>=|<=/,
+    expression: /AND|OR/,
+    value: /'[^']*'|"[^"]*"|\d+/,
+    variable: /[\w(?:\.\w)*]+/
+  });
 %}
 
 @lexer lexer
@@ -18,7 +18,7 @@ main ->
 condition -> %variable %ws %comparison %ws %value {% function(d) { return { d } } %}
 
 exp -> 
-	AND {% function(d) { return { d:d[0] } } %}
+    AND {% function(d) { return { d:d[0] } } %}
   | OR  {% function(d) { return { d:d[0] } } %}
 
 AND -> "AND"

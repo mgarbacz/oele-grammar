@@ -16,6 +16,12 @@ Once you've cloned the project, install dependencies with `npm install` (or `pnp
 npm run compile
 ```
 
+Once you've compile the grammar, you can run the `index.js` file in the project to see an example parsed with the grammar.
+
+```bash
+node index.js
+```
+
 Nearley comes with a test command, but it leaves a lot to be desired when it comes to supporting the running of test cases and comparisons against expected values. I've linked it up to npm scripts, but it won't help much at the moment. Watch this space.
 
 ```bash
